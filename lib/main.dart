@@ -22,14 +22,32 @@ class MyApp extends StatelessWidget {
 class HomeActivity extends StatelessWidget {
   const HomeActivity({super.key});
 
+  MySnackBar(message, context) {
+    return ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Demo App"),
+        title: Text("Inventory App"),
         centerTitle: true,
+        titleSpacing: 0,
+        elevation: 0,
+        backgroundColor: Colors.blue,
+        toolbarHeight: 50,
+        leading: Icon(Icons.menu),
+        actions: [
+          IconButton(
+            onPressed: () {
+              MySnackBar("Your shopping cart is empty", context);
+            },
+            icon: Icon(Icons.shopping_cart),
+            tooltip: "Check your shopping cart",
+          )
+        ],
       ),
-      body: Text("Hello"),
     );
   }
 }
