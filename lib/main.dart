@@ -29,6 +29,7 @@ class HomeActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var _currentIndex = 0;
     return Scaffold(
       appBar: AppBar(
         title: Text("Inventory App"),
@@ -54,6 +55,23 @@ class HomeActivity extends StatelessWidget {
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.blue,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: "Contact"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
+        ],
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          if (index == 0) {
+            MySnackBar("This home bottom navbar", context);
+          } else if (index == 1) {
+            MySnackBar("This contact bottom navbar", context);
+          } else {
+            MySnackBar("This profile bottom navbar", context);
+          }
+        },
       ),
     );
   }
