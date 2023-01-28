@@ -31,172 +31,195 @@ class HomeActivity extends StatelessWidget {
   Widget build(BuildContext context) {
     var _currentIndex = 0;
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Inventory App"),
-        centerTitle: true,
-        titleSpacing: 0,
-        elevation: 0,
-        backgroundColor: Colors.blue,
-        toolbarHeight: 50,
-        actions: [
-          IconButton(
-            onPressed: () {
-              MySnackBar("Your shopping cart is empty", context);
-            },
-            icon: Icon(Icons.shopping_cart),
-            tooltip: "Check your shopping cart",
-          )
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          MySnackBar("This is floating button action", context);
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.blue,
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: "Contact"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
-        ],
-        currentIndex: _currentIndex,
-        onTap: (int index) {
-          if (index == 0) {
-            MySnackBar("This home bottom navbar", context);
-            _currentIndex = 0;
-          } else if (index == 1) {
-            MySnackBar("This contact bottom navbar", context);
-            _currentIndex = 1;
-          } else {
-            MySnackBar("This profile bottom navbar", context);
-            _currentIndex = 3;
-          }
-        },
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-                padding: EdgeInsets.all(0),
-                child: UserAccountsDrawerHeader(
-                    decoration: BoxDecoration(color: Colors.white),
-                    currentAccountPicture: Image.network(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoKJPxxwPeNvISnBbZsZHe887Ws0FnrL7o0w&usqp=CAU"),
-                    accountName: Text(
-                      "Md Arif",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    accountEmail: Text(
-                      "mdarif1129@gmail.com",
-                      style: TextStyle(color: Colors.black),
-                    ))),
-            ListTile(
-              title: Text("Home"),
-              leading: Icon(Icons.home),
-              onTap: () {
-                MySnackBar("I am home", context);
+        appBar: AppBar(
+          title: Text("Inventory App"),
+          centerTitle: true,
+          titleSpacing: 0,
+          elevation: 0,
+          backgroundColor: Colors.blue,
+          toolbarHeight: 50,
+          actions: [
+            IconButton(
+              onPressed: () {
+                MySnackBar("Your shopping cart is empty", context);
               },
-            ),
-            ListTile(
-              title: Text("Contact"),
-              leading: Icon(Icons.message),
-              onTap: () {
-                MySnackBar("I am contact", context);
-              },
-            ),
-            ListTile(
-              title: Text("Email"),
-              leading: Icon(Icons.contact_mail),
-              onTap: () {
-                MySnackBar("I am email", context);
-              },
-            ),
-            ListTile(
-              title: Text("Profile"),
-              leading: Icon(Icons.person),
-              onTap: () {
-                MySnackBar("I am profile", context);
-              },
-            ),
-            ListTile(
-              title: Text("Share"),
-              leading: Icon(Icons.share),
-              onTap: () {
-                MySnackBar("I am share", context);
-              },
+              icon: Icon(Icons.shopping_cart),
+              tooltip: "Check your shopping cart",
             )
           ],
         ),
-      ),
-      endDrawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-                padding: EdgeInsets.all(0),
-                child: UserAccountsDrawerHeader(
-                    decoration: BoxDecoration(color: Colors.white),
-                    currentAccountPicture: Image.network(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoKJPxxwPeNvISnBbZsZHe887Ws0FnrL7o0w&usqp=CAU"),
-                    accountName: Text(
-                      "Md Arif",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    accountEmail: Text(
-                      "mdarif1129@gmail.com",
-                      style: TextStyle(color: Colors.black),
-                    ))),
-            ListTile(
-              title: Text("Home"),
-              leading: Icon(Icons.home),
-              onTap: () {
-                MySnackBar("I am home", context);
-              },
-            ),
-            ListTile(
-              title: Text("Contact"),
-              leading: Icon(Icons.message),
-              onTap: () {
-                MySnackBar("I am contact", context);
-              },
-            ),
-            ListTile(
-              title: Text("Email"),
-              leading: Icon(Icons.contact_mail),
-              onTap: () {
-                MySnackBar("I am email", context);
-              },
-            ),
-            ListTile(
-              title: Text("Profile"),
-              leading: Icon(Icons.person),
-              onTap: () {
-                MySnackBar("I am profile", context);
-              },
-            ),
-            ListTile(
-              title: Text("Share"),
-              leading: Icon(Icons.share),
-              onTap: () {
-                MySnackBar("I am share", context);
-              },
-            )
-          ],
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            MySnackBar("This is floating button action", context);
+          },
+          child: Icon(Icons.add),
+          backgroundColor: Colors.blue,
         ),
-      ),
-      body: Center(
-        child: Container(
-            padding: EdgeInsets.all(10),
-            margin: EdgeInsets.all(10),
-            alignment: Alignment.center,
-            height: 200,
-            width: 300,
-            child: Text("Hello"),
-            decoration: BoxDecoration(
-                color: Colors.green,
-                border: Border.all(color: Colors.red, width: 6))),
-      ),
-    );
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.message), label: "Contact"),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
+          ],
+          currentIndex: _currentIndex,
+          onTap: (int index) {
+            if (index == 0) {
+              MySnackBar("This home bottom navbar", context);
+              _currentIndex = 0;
+            } else if (index == 1) {
+              MySnackBar("This contact bottom navbar", context);
+              _currentIndex = 1;
+            } else {
+              MySnackBar("This profile bottom navbar", context);
+              _currentIndex = 3;
+            }
+          },
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                  padding: EdgeInsets.all(0),
+                  child: UserAccountsDrawerHeader(
+                      decoration: BoxDecoration(color: Colors.white),
+                      currentAccountPicture: Image.network(
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoKJPxxwPeNvISnBbZsZHe887Ws0FnrL7o0w&usqp=CAU"),
+                      accountName: Text(
+                        "Md Arif",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      accountEmail: Text(
+                        "mdarif1129@gmail.com",
+                        style: TextStyle(color: Colors.black),
+                      ))),
+              ListTile(
+                title: Text("Home"),
+                leading: Icon(Icons.home),
+                onTap: () {
+                  MySnackBar("I am home", context);
+                },
+              ),
+              ListTile(
+                title: Text("Contact"),
+                leading: Icon(Icons.message),
+                onTap: () {
+                  MySnackBar("I am contact", context);
+                },
+              ),
+              ListTile(
+                title: Text("Email"),
+                leading: Icon(Icons.contact_mail),
+                onTap: () {
+                  MySnackBar("I am email", context);
+                },
+              ),
+              ListTile(
+                title: Text("Profile"),
+                leading: Icon(Icons.person),
+                onTap: () {
+                  MySnackBar("I am profile", context);
+                },
+              ),
+              ListTile(
+                title: Text("Share"),
+                leading: Icon(Icons.share),
+                onTap: () {
+                  MySnackBar("I am share", context);
+                },
+              )
+            ],
+          ),
+        ),
+        endDrawer: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                  padding: EdgeInsets.all(0),
+                  child: UserAccountsDrawerHeader(
+                      decoration: BoxDecoration(color: Colors.white),
+                      currentAccountPicture: Image.network(
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoKJPxxwPeNvISnBbZsZHe887Ws0FnrL7o0w&usqp=CAU"),
+                      accountName: Text(
+                        "Md Arif",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      accountEmail: Text(
+                        "mdarif1129@gmail.com",
+                        style: TextStyle(color: Colors.black),
+                      ))),
+              ListTile(
+                title: Text("Home"),
+                leading: Icon(Icons.home),
+                onTap: () {
+                  MySnackBar("I am home", context);
+                },
+              ),
+              ListTile(
+                title: Text("Contact"),
+                leading: Icon(Icons.message),
+                onTap: () {
+                  MySnackBar("I am contact", context);
+                },
+              ),
+              ListTile(
+                title: Text("Email"),
+                leading: Icon(Icons.contact_mail),
+                onTap: () {
+                  MySnackBar("I am email", context);
+                },
+              ),
+              ListTile(
+                title: Text("Profile"),
+                leading: Icon(Icons.person),
+                onTap: () {
+                  MySnackBar("I am profile", context);
+                },
+              ),
+              ListTile(
+                title: Text("Share"),
+                leading: Icon(Icons.share),
+                onTap: () {
+                  MySnackBar("I am share", context);
+                },
+              )
+            ],
+          ),
+        ),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+                padding: EdgeInsets.all(10),
+                margin: EdgeInsets.all(10),
+                alignment: Alignment.center,
+                height: 100,
+                width: 100,
+                child: Text("Hello"),
+                decoration: BoxDecoration(
+                    color: Colors.green,
+                    border: Border.all(color: Colors.red, width: 6))),
+            Container(
+                padding: EdgeInsets.all(10),
+                margin: EdgeInsets.all(10),
+                alignment: Alignment.center,
+                height: 100,
+                width: 100,
+                child: Text("Hello"),
+                decoration: BoxDecoration(
+                    color: Colors.green,
+                    border: Border.all(color: Colors.red, width: 6))),
+            Container(
+                padding: EdgeInsets.all(10),
+                margin: EdgeInsets.all(10),
+                alignment: Alignment.center,
+                height: 100,
+                width: 100,
+                child: Text("Hello"),
+                decoration: BoxDecoration(
+                    color: Colors.green,
+                    border: Border.all(color: Colors.red, width: 6))),
+          ],
+        ));
   }
 }
