@@ -194,23 +194,31 @@ class HomeActivity extends StatelessWidget {
         body: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            TextButton(
-                onPressed: () {
-                  MySnackBar("I am Text Button", context);
-                },
-                child: Text("Text Button")),
             ElevatedButton(
               onPressed: () {
-                MySnackBar("I am Elevated Button", context);
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                          title: Text("Do you want"),
+                          content: Text("If you want click yes button"),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text("No")),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                  MySnackBar("You click yes button", context);
+                                },
+                                child: Text("Yes")),
+                          ],
+                        ));
               },
               child: Text("Elevated Button"),
               style: buttonStyle,
             ),
-            OutlinedButton(
-                onPressed: () {
-                  MySnackBar("I am Outline Button", context);
-                },
-                child: Text("Outline Button")),
           ],
         ));
   }
