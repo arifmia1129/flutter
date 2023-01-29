@@ -30,6 +30,11 @@ class HomeActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _currentIndex = 0;
+    ButtonStyle buttonStyle = ElevatedButton.styleFrom(
+        backgroundColor: Colors.green,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10))),
+        padding: EdgeInsets.all(20));
     return Scaffold(
         appBar: AppBar(
           title: Text("Inventory App"),
@@ -189,36 +194,23 @@ class HomeActivity extends StatelessWidget {
         body: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-                padding: EdgeInsets.all(10),
-                margin: EdgeInsets.all(10),
-                alignment: Alignment.center,
-                height: 100,
-                width: 100,
-                child: Text("Hello"),
-                decoration: BoxDecoration(
-                    color: Colors.green,
-                    border: Border.all(color: Colors.red, width: 6))),
-            Container(
-                padding: EdgeInsets.all(10),
-                margin: EdgeInsets.all(10),
-                alignment: Alignment.center,
-                height: 100,
-                width: 100,
-                child: Text("Hello"),
-                decoration: BoxDecoration(
-                    color: Colors.green,
-                    border: Border.all(color: Colors.red, width: 6))),
-            Container(
-                padding: EdgeInsets.all(10),
-                margin: EdgeInsets.all(10),
-                alignment: Alignment.center,
-                height: 100,
-                width: 100,
-                child: Text("Hello"),
-                decoration: BoxDecoration(
-                    color: Colors.green,
-                    border: Border.all(color: Colors.red, width: 6))),
+            TextButton(
+                onPressed: () {
+                  MySnackBar("I am Text Button", context);
+                },
+                child: Text("Text Button")),
+            ElevatedButton(
+              onPressed: () {
+                MySnackBar("I am Elevated Button", context);
+              },
+              child: Text("Elevated Button"),
+              style: buttonStyle,
+            ),
+            OutlinedButton(
+                onPressed: () {
+                  MySnackBar("I am Outline Button", context);
+                },
+                child: Text("Outline Button")),
           ],
         ));
   }
