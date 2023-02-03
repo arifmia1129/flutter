@@ -235,7 +235,9 @@ class HomeActivity extends StatelessWidget {
             ],
           ),
         ),
-        body: ListView.builder(
+        body: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 1.2),
           padding: EdgeInsets.all(10),
           itemCount: myItems.length,
           itemBuilder: (context, index) {
