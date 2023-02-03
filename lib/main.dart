@@ -20,12 +20,55 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeActivity extends StatelessWidget {
-  const HomeActivity({super.key});
+  HomeActivity({super.key});
 
   MySnackBar(message, context) {
     return ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(message)));
   }
+
+  var myItems = [
+    {
+      "img":
+          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+      "title": "flower-1"
+    },
+    {
+      "img":
+          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+      "title": "flower-2"
+    },
+    {
+      "img":
+          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+      "title": "flower-3"
+    },
+    {
+      "img":
+          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+      "title": "flower-4"
+    },
+    {
+      "img":
+          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+      "title": "flower-5"
+    },
+    {
+      "img":
+          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+      "title": "flower-6"
+    },
+    {
+      "img":
+          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+      "title": "flower-7"
+    },
+    {
+      "img":
+          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+      "title": "flower-8"
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -192,39 +235,22 @@ class HomeActivity extends StatelessWidget {
             ],
           ),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(), labelText: "First Name"),
+        body: ListView.builder(
+          padding: EdgeInsets.all(10),
+          itemCount: myItems.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                MySnackBar(myItems[index]["title"], context);
+              },
+              child: Container(
+                width: double.infinity,
+                height: 200,
+                child: Image.network(myItems[index]["img"]!, fit: BoxFit.fill),
+                margin: EdgeInsets.all(10),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(), labelText: "Last Name"),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(), labelText: "Email"),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text("Submit"),
-                style: buttonStyle,
-              ),
-            ),
-          ],
+            );
+          },
         ));
   }
 }
