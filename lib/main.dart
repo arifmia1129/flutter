@@ -32,6 +32,7 @@ class HomeActivity extends StatelessWidget {
     var _currentIndex = 0;
     ButtonStyle buttonStyle = ElevatedButton.styleFrom(
         backgroundColor: Colors.green,
+        minimumSize: Size(double.infinity, 60),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10))),
         padding: EdgeInsets.all(20));
@@ -191,33 +192,37 @@ class HomeActivity extends StatelessWidget {
             ],
           ),
         ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) => AlertDialog(
-                          title: Text("Do you want"),
-                          content: Text("If you want click yes button"),
-                          actions: [
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text("No")),
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                  MySnackBar("You click yes button", context);
-                                },
-                                child: Text("Yes")),
-                          ],
-                        ));
-              },
-              child: Text("Elevated Button"),
-              style: buttonStyle,
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(), labelText: "First Name"),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(), labelText: "Last Name"),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(), labelText: "Email"),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("Submit"),
+                style: buttonStyle,
+              ),
             ),
           ],
         ));
