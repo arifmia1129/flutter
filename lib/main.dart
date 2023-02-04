@@ -24,95 +24,46 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeActivity extends StatelessWidget {
-  HomeActivity({super.key});
-
-  MySnackBar(message, context) {
-    return ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message)));
-  }
-
-  var myItems = [
-    {
-      "img":
-          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
-      "title": "flower-1"
-    },
-    {
-      "img":
-          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
-      "title": "flower-2"
-    },
-    {
-      "img":
-          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
-      "title": "flower-3"
-    },
-    {
-      "img":
-          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
-      "title": "flower-4"
-    },
-    {
-      "img":
-          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
-      "title": "flower-5"
-    },
-    {
-      "img":
-          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
-      "title": "flower-6"
-    },
-    {
-      "img":
-          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
-      "title": "flower-7"
-    },
-    {
-      "img":
-          "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
-      "title": "flower-8"
-    },
-  ];
+  const HomeActivity({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var _currentIndex = 0;
-    ButtonStyle buttonStyle = ElevatedButton.styleFrom(
-        backgroundColor: Colors.green,
-        minimumSize: Size(double.infinity, 60),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10))),
-        padding: EdgeInsets.all(20));
-    return DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text("My App"),
-            bottom: TabBar(isScrollable: true, tabs: [
-              Tab(
-                icon: Icon(Icons.home),
-                text: "Home",
-              ),
-              Tab(
-                icon: Icon(Icons.contact_mail),
-                text: "Contact",
-              ),
-              Tab(
-                icon: Icon(Icons.balance),
-                text: "Balance",
-              ),
-              Tab(
-                icon: Icon(Icons.person),
-                text: "Person",
-              ),
-            ]),
-          ),
-          body: TabBarView(children: [
-            HomeFragment(),
-            ContactFragment(),
-            BalanceFragment(),
-            PersonFragment()
-          ]),
-        ));
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home"),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Activity1()));
+                },
+                child: Text("Go Activity 1"))
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Activity1 extends StatelessWidget {
+  const Activity1({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Activity-1"),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            ElevatedButton(onPressed: () {}, child: Text("Go Activity 1"))
+          ],
+        ),
+      ),
+    );
   }
 }
