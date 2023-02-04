@@ -37,8 +37,11 @@ class HomeActivity extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Activity1()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Activity1("This data from home")));
                 },
                 child: Text("Go Activity 1"))
           ],
@@ -49,13 +52,15 @@ class HomeActivity extends StatelessWidget {
 }
 
 class Activity1 extends StatelessWidget {
-  const Activity1({super.key});
+  String msg;
+
+  Activity1(this.msg, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Activity-1"),
+        title: Text(msg),
       ),
       body: Center(
         child: Column(
